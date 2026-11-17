@@ -1,5 +1,7 @@
 # Weight-informed stopping for DINO-WM Wall planning
 
+[Open baseline in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/01_wall_baseline.ipynb) · [Open WSP comparison in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/02_wall_wsp_comparison.ipynb)
+
 This project asks whether an LLM can inspect a frozen world model's implementation
 and numerical weights, then directly write the weights of a small planning
 stopper without training, world-model forward passes, simulator rollouts, or
@@ -23,9 +25,10 @@ controller instruction. Establish the local success–compute curve empirically.
 ## 1. Repository structure and how it comes together
 
 ```text
-wsp-stopper/
-├── 01_wall_baseline.ipynb
-├── 02_wall_wsp_comparison.ipynb
+wm_weight_space_experiments/
+├── notebooks/
+│   ├── 01_wall_baseline.ipynb
+│   └── 02_wall_wsp_comparison.ipynb
 ├── README.md
 ├── pyproject.toml
 ├── config/
@@ -197,20 +200,43 @@ controller and hide unsuccessful generations.
 
 ### Before starting
 
-1. Copy `01_wall_baseline.ipynb`, `02_wall_wsp_comparison.ipynb` and `README.md`
-   into your repaired project root, commit and push them.
-2. Open notebook 01 in Google Colab through its GitHub URL or File → Upload notebook.
+1. Keep both `.ipynb` files in `notebooks/` and `README.md` in the repository root.
+   Commit and push the repaired Python package and these files.
+2. Open [notebook 01](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/01_wall_baseline.ipynb)
+   or [notebook 02](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/02_wall_wsp_comparison.ipynb)
+   in Colab using the links above, or upload a notebook through Colab's File menu.
 3. Choose Runtime → Change runtime type → GPU. Colab GPU availability is variable.
 4. In both notebooks set `REPO_URL`, preferably an exact `PROJECT_REF` commit,
    and the same `EXPERIMENT_ID` and `DRIVE_FOLDER`.
 5. The first run mounts Drive and downloads checkpoints. Keep substantial free
    disk/RAM. Start with the small pilot; optional sweeps multiply planning time.
 
+Use this repository URL in the parameter cell of both notebooks (the currently
+committed notebooks still contain a placeholder):
+
+```python
+REPO_URL = "https://github.com/Artifex2002/wm_weight_space_experiments.git"
+PROJECT_REF = "PASTE_THE_EXACT_GIT_COMMIT"
+EXPERIMENT_ID = "wall-pilot-001"
+DRIVE_FOLDER = "/content/drive/MyDrive/wsp-stopper"
+```
+
+After your final source/documentation commit, run `git rev-parse HEAD` locally
+and paste that full hash into both parameter cells. Once notebook 01 has run,
+the authoritative commit is `project_commit` inside its saved `protocol.json`.
+Do not switch notebook 02 to a later `main` revision, even for a README-only
+commit: its current guard checks the full project commit.
+
+The notebook files living in `notebooks/` does not require a Python code change.
+Their bootstrap clones the repository into `/content/wsp-stopper` and changes
+working directory to that repository root before importing or running anything.
+Do not change the root to `/content/wsp-stopper/notebooks`.
+
 For private repositories, clone manually using your preferred credentials first,
 into `/content/wsp-stopper`. Do not put a GitHub token into a notebook URL or output.
 OpenAI and GitHub credentials serve different purposes.
 
-### Notebook 01 — `01_wall_baseline.ipynb`
+### Notebook 01 — `notebooks/01_wall_baseline.ipynb`
 
 Runs without an OpenAI key. Its cells:
 
@@ -233,7 +259,7 @@ Completed evaluation files are reused; an interrupted unfinished evaluation must
 be rerun. Results are written after completing each evaluation call, not after
 individual episodes.
 
-### Notebook 02 — `02_wall_wsp_comparison.ipynb`
+### Notebook 02 — `notebooks/02_wall_wsp_comparison.ipynb`
 
 Run after notebook 01. Its cells:
 
@@ -301,6 +327,119 @@ Checkpoints, unpacked tensors and source clones remain under `/content` and are
 recreated after VM resets. Use a new version/experiment rather than overwriting
 frozen specifications. Audit logs contain model outputs and inspected data;
 keep them out of public commits unless reviewed for release.
+
+### Two people, two Colab accounts: use the same saved episodes
+
+**Yes.** One person can run notebook 01, then another can run notebook 02 in a
+separate account and VM. The second person must receive the actual handoff
+files; identical names under `MyDrive` do not share data between accounts.
+Sharing the notebook URL also does not share runtime files.
+
+| Requirement | What must match |
+|---|---|
+| Episodes | The exact bytes of `tasks.json`: start/goal coordinates, layout, environment and planner seeds |
+| Source | `protocol.json` project commit, source fingerprints and embedded-runner hash |
+| Model | Pinned checkpoint/encoder assets and hashes from the release lock |
+| Planner | Population, elites, horizon, execution chunk, objective and microbatching |
+| Original reference | Complete `baseline_k30.json` from notebook 01 |
+| Local Drive path | May differ, provided the same handoff files are placed under the recipient's `EXPERIMENT` directory |
+
+Do not independently regenerate a supposedly equivalent task set as the handoff.
+Copy the original manifest unchanged. Notebook 02 checks its SHA-256 against the
+protocol and baseline results, and rejects mismatches. Shared seeds improve
+pairing but do not guarantee bitwise-identical GPU trajectories or identical
+success: PyTorch/platform differences and numerical nondeterminism can change
+candidate ranks. Identical tasks and configurations are the guarantee here.
+
+The current notebooks have an explicit dependency: notebook 02 checks that the
+baseline handoff exists before proceeding. You may prepare runtimes/assets in
+parallel, but the baseline must finish before the WSP notebook's handoff check.
+
+#### Person A: run notebook 01 and export a handoff
+
+Finish notebook 01. Then add/run this extra cell in that Colab session. It uses
+the notebook's existing `EXPERIMENT` variable and downloads three small files in
+a ZIP; no checkpoints or API credentials are included.
+
+```python
+from pathlib import Path
+import json, zipfile
+from google.colab import files
+
+handoff_names = ("tasks.json", "protocol.json", "baseline_k30.json")
+assert all((EXPERIMENT / name).is_file() for name in handoff_names)
+print("Tell your roommate to use PROJECT_REF =",
+      json.loads((EXPERIMENT / "protocol.json").read_text())["project_commit"])
+handoff_zip = Path("/content") / f"{EXPERIMENT.name}-handoff.zip"
+with zipfile.ZipFile(handoff_zip, "w", zipfile.ZIP_DEFLATED) as archive:
+    for name in handoff_names:
+        archive.write(EXPERIMENT / name, f"{EXPERIMENT.name}/{name}")
+files.download(str(handoff_zip))
+```
+
+Send that ZIP to Person B using your normal file-sharing method. The handoff
+contains baseline outcomes for the evaluator; these must remain outside Astra's
+inspection packet and must not be pasted into its prompt.
+
+#### Person B: import the handoff before notebook 02's verification cell
+
+Use the exact `PROJECT_REF` reported by Person A and the same `EXPERIMENT_ID`.
+Run notebook 02's parameter, bootstrap and embedded-runtime cells. The bootstrap
+mounts your own Drive and creates your own `EXPERIMENT` directory. **Before** the
+cell that starts `TASKS = EXPERIMENT / 'tasks.json'`, add/run this upload cell:
+
+```python
+import io, json, hashlib, zipfile
+from google.colab import files
+
+uploaded = files.upload()  # Select the ZIP supplied by Person A.
+assert len(uploaded) == 1, "Upload exactly one handoff ZIP"
+handoff_names = ("tasks.json", "protocol.json", "baseline_k30.json")
+with zipfile.ZipFile(io.BytesIO(next(iter(uploaded.values())))) as archive:
+    expected = {f"{EXPERIMENT.name}/{name}" for name in handoff_names}
+    assert set(archive.namelist()) == expected, "Unexpected handoff contents/experiment ID"
+    payload = {name: archive.read(f"{EXPERIMENT.name}/{name}")
+               for name in handoff_names}
+
+incoming_protocol = json.loads(payload["protocol.json"])
+incoming_baseline = json.loads(payload["baseline_k30.json"])
+task_sha = hashlib.sha256(payload["tasks.json"]).hexdigest()
+assert task_sha == incoming_protocol["tasks_sha256"] == incoming_baseline["tasks_sha256"]
+assert PROJECT_COMMIT == incoming_protocol["project_commit"], "Use Person A's exact commit"
+assert project_fingerprint() == incoming_protocol["project_files"]
+assert RUNTIME_SHA == incoming_protocol["runtime_sha256"] == incoming_baseline["runtime_sha256"]
+
+# Check every existing destination before writing any file. Keep existing work.
+for name, blob in payload.items():
+    destination = EXPERIMENT / name
+    if destination.exists():
+        assert destination.read_bytes() == blob, f"Conflicting existing file: {name}"
+for name, blob in payload.items():
+    destination = EXPERIMENT / name
+    if not destination.exists():
+        destination.write_bytes(blob)
+print("Handoff imported and hashes verified:", EXPERIMENT)
+```
+
+Continue notebook 02 from its original handoff verification cell. No notebook
+source edit beyond parameters and the added transfer cell is necessary. Do not
+upload these files into `packets/` or add them to the generator's source list.
+Person B supplies the API key privately; Person A does not need that key.
+
+#### What is comparable across different GPUs?
+
+The WSP controller and baseline can use exactly the same episodes and initial
+planner randomness on separate machines. However, raw latency measured on
+Person A's GPU cannot establish a speedup relative to a different Person B GPU.
+Notebook 02 already reruns the fixed-30 baseline on Person B's current runtime
+before evaluating the controller; use that pair for latency/compute comparison.
+It retains the original baseline and reports success changes on the recheck.
+Even the same GPU model does not eliminate load/thermal/numerical differences.
+
+Use independent Drive copies for this handoff so the two people do not write
+result files simultaneously. If you choose a shared mounted folder instead,
+verify its actual mount path and arrange a single writer per result file.
+The same `EXPERIMENT_ID` alone never synchronizes two private account drives.
 
 ## 3. Comparison and interpretation
 
@@ -382,12 +521,21 @@ The notebooks require `make_packet`/preparation from the Wall upgrade. Editing
 source after freezing a packet requires a new packet and a new generation. An
 old controller should remain bound to the specification that produced it.
 
-## 6. Commit these three files
+## 6. Commit notebooks or README updates
 
 ```bash
-git add -- 01_wall_baseline.ipynb 02_wall_wsp_comparison.ipynb README.md
+git add -- notebooks/01_wall_baseline.ipynb notebooks/02_wall_wsp_comparison.ipynb README.md
 git diff --cached --stat
 git commit -m "feat: add paired Wall baseline and WSP Colab experiments"
+git push
+```
+
+If the notebooks are already in `notebooks/` and only this guide changed:
+
+```bash
+git add -- README.md
+git diff --cached --stat
+git commit -m "docs: update notebook paths and explain two-person Colab handoff"
 git push
 ```
 
@@ -407,3 +555,5 @@ addition to an existing repo.
 - Weight-Space Programming: https://rikiyat.github.io/blog/weight-space-programming/
 - OpenAI function calling: https://developers.openai.com/api/docs/guides/function-calling
 - Google Colab runtime and persistence FAQ: https://research.google.com/colaboratory/faq.html
+
+- PyTorch reproducibility notes: https://docs.pytorch.org/docs/stable/notes/randomness.html
