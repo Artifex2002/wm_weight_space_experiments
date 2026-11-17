@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wsp-stopper"
+version = "0.1.0"
+description = "Auditable weight-informed construction of planning stoppers"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3"]
+
+[project.optional-dependencies]
+checkpoint = ["torch>=2.6", "huggingface-hub>=0.27,<2"]
+
+[project.scripts]
+wsp = "wsp_stopper.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
