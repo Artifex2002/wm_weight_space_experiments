@@ -1,0 +1,13 @@
+{
+  "ready": false,
+  "checkpoint_revision": "",
+  "source_commit": "",
+  "environment": "",
+  "success_predicate": "",
+  "preprocessing": "",
+  "action_units": "",
+  "planner": {},
+  "episode_limit": null,
+  "objective": "U = S - 0.05 * total_completed_CEM_iterations / (30*M); S is episode success; M is episode_limit",
+  "notes": "Fill from the exact checkpoint and evaluation source. No empirical scores, depth curves, recommended stop threshold, or hidden episodes. ready=true is an attestation that fields were reviewed. This template is deliberately not runnable."
+}
