@@ -1,3 +1,7 @@
+> Wall upgrade: use [docs/WALL_UPGRADE.md](docs/WALL_UPGRADE.md) for the new
+> automated checkpoint preparation, pinned CEM patch, and full packet freeze.
+> This replaces the manual preparation path below for our selected Wall release.
+
 # Weight-informed planning stopper
 
 A starter research environment where an OpenAI API model can choose how to
@@ -8,8 +12,9 @@ Implemented: packet export/hashes, bounded tensor/source inspection, Responses
 API function loop, budgets/audit logs, one final submission, feature extraction,
 controller inference, and offline protocol tests.
 
-Not yet implemented/validated: DINO-WM Wall planner integration, full checkpoint
-loading/inference, baseline sweep, learned-stopper training, or a live API run.
+The Wall upgrade implements a version-locked CEM hook and full-component packet
+export. Not yet validated: real world-model loading/inference and Wall execution,
+baseline sweep, learned-stopper training, or a live API run.
 The included mock test uses synthetic tensors, not a trained world model. This
 is a construction harness, not a complete reproduction of the stopping paper.
 

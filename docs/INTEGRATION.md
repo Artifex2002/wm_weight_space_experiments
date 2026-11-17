@@ -1,8 +1,10 @@
 # DINO-WM adapter contract
 
-The actual Meta/original DINO-WM planner has not been downloaded or run here.
-Add a hook after scoring, elite selection and proposal refit, before the next
-CEM iteration. Freeze this implementation with the source packet before running
+The Wall upgrade implements a hook for the pinned Meta DINO-WM baseline through
+upstream_patch.py and cem_hook.py. See WALL_UPGRADE.md for commands. The CPU
+quadratic-objective test executes the actual pinned CEM class; real Wall model
+inference is still pending. The following generic contract explains the hook
+and remains useful when porting to other planners. Freeze this implementation with the source packet before running
 generation. Do not silently change the source after generating weights.
 
 ```python
