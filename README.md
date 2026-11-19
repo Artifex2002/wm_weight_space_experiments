@@ -1,6 +1,6 @@
 # Weight-informed stopping for DINO-WM Wall planning
 
-[Open baseline in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/01_wall_baseline.ipynb) · [Open WSP comparison in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/02_wall_wsp_comparison.ipynb)
+[Open baseline in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/01_wall_baseline.ipynb) · [Open WSP comparison in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/02_wall_wsp_comparison.ipynb) · [Open diagnostics in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/03_wall_frozen_stopper_diagnostics.ipynb) · [Open prompt study in Colab](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/04_wall_prompt_comparison.ipynb)
 
 This project asks whether an LLM can inspect a frozen world model's implementation
 and numerical weights, then directly write the weights of a small planning
@@ -22,13 +22,23 @@ This repository uses Meta's released `dino_wm_wall` baseline checkpoint at epoch
 A published peak at a particular iteration is neither an expected result nor a
 controller instruction. Establish the local success–compute curve empirically.
 
+Latest research status: the six-task pilot and fixed-depth sweep are complete.
+Fixed 15 is the best tested pilot budget under our utility; the first Astra
+controller was conservative. The two-prompt follow-up has six accepted
+controllers, but only **one of twelve tasks evaluated: 8/96 jobs**. This is a
+partial study, not evidence that either prompt wins. Read
+[the experiment log](docs/EXPERIMENT_LOG.md) and
+[curated evidence index](results/README.md).
+
 ## 1. Repository structure and how it comes together
 
 ```text
 wm_weight_space_experiments/
 ├── notebooks/
 │   ├── 01_wall_baseline.ipynb
-│   └── 02_wall_wsp_comparison.ipynb
+│   ├── 02_wall_wsp_comparison.ipynb
+│   ├── 03_wall_frozen_stopper_diagnostics.ipynb
+│   └── 04_wall_prompt_comparison.ipynb
 ├── README.md
 ├── pyproject.toml
 ├── config/
@@ -53,18 +63,28 @@ wm_weight_space_experiments/
 │   └── restore_missing.py
 ├── tests/
 │   ├── test_system.py
-│   └── test_wall_upgrade.py
-└── docs/
-    ├── PROTOCOL.md
-    ├── INTEGRATION.md
-    ├── WALL_UPGRADE.md
-    └── REPAIR_INSTALL.md
+│   ├── test_wall_upgrade.py
+│   └── test_notebooks.py
+├── docs/
+│   ├── PROTOCOL.md
+│   ├── INTEGRATION.md
+│   ├── WALL_UPGRADE.md
+│   ├── REPAIR_INSTALL.md
+│   ├── REPO_UPDATE_GUIDE.md
+│   ├── UPDATE_MANIFEST.json
+│   └── EXPERIMENT_LOG.md
+└── results/
+    ├── README.md
+    ├── wall-pilot-001/
+    └── wall-prompt-study-001/
 ```
 
-Assets, packets and runs are generated artifacts, not source files to commit.
-The complete starter and Wall upgrade must already be present; the notebooks
-check that required modules exist before running. These three new files do not
-replace the Python package.
+Full assets, inspection packets and working runs stay outside version control.
+`results/` contains explicitly curated small snapshots; their coverage and missing
+evidence are documented. They do not replace active Drive runs. The complete
+starter/Wall upgrade package must already be present; the notebooks check required
+modules. The follow-up notebooks contain their additional helpers internally and
+do not require changing `src/wsp_stopper/`.
 
 ### Python modules
 
@@ -128,10 +148,12 @@ controller construction. Do not change the execution convention after generation
 
 ### Runtime adapter embedded in the notebooks
 
-Both notebooks embed **the same Python runner as a code-cell string**. The cell
-writes it to `/content/wsp_wall_notebook_runtime.py`. You only need to add the two
-notebooks and this README to the existing repository; no additional local helper
-file is required.
+All four notebooks embed **the same Python evaluator as a code-cell string**,
+with SHA-256 `c850c41dbe72088e3946a0d6ad965423c69675b25d41f0ef38a5aac8da45b299`.
+The cell writes `/content/wsp_wall_notebook_runtime.py`. Notebook 04 additionally
+embeds its study orchestration helper. No extra Python helper files need to be
+installed in the repository. Notebook integration tests check evaluator identity
+and the source-fingerprint contract against notebook 02's independent implementation.
 
 The runner:
 
@@ -196,23 +218,31 @@ can include many inspection tool calls. An invalid submission, truncated respons
 API error or budget exhaustion is a failed attempt. Do not pick the best test-set
 controller and hide unsuccessful generations.
 
-## 2. The two Colab notebooks
+## 2. The four Colab notebooks
+
+| Notebook | Purpose | Additional Astra generation? |
+|---|---|---|
+| 01 | Save original Wall tasks and fixed-budget baseline | No |
+| 02 | Construct one stopper, freeze it, and compare on the saved tasks | Yes, one attempt |
+| 03 | Audit the frozen controller, sweep fixed depths, optionally test new episodes and repeat timing | No |
+| 04 | Compare original versus marginal-utility prompt, three fresh attempts each, on one new task set | Yes, six planned attempts |
 
 ### Before starting
 
-1. Keep both `.ipynb` files in `notebooks/` and `README.md` in the repository root.
-   Commit and push the repaired Python package and these files.
+1. Keep all four `.ipynb` files in `notebooks/` and `README.md` in the repository root.
+   Commit the repaired Python package before creating a baseline. See the
+   [incremental update guide](docs/REPO_UPDATE_GUIDE.md) for these follow-up files.
 2. Open [notebook 01](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/01_wall_baseline.ipynb)
    or [notebook 02](https://colab.research.google.com/github/Artifex2002/wm_weight_space_experiments/blob/main/notebooks/02_wall_wsp_comparison.ipynb)
    in Colab using the links above, or upload a notebook through Colab's File menu.
 3. Choose Runtime → Change runtime type → GPU. Colab GPU availability is variable.
-4. In both notebooks set `REPO_URL`, preferably an exact `PROJECT_REF` commit,
-   and the same `EXPERIMENT_ID` and `DRIVE_FOLDER`.
+4. Keep `REPO_URL`, the recorded `PROJECT_REF`, `EXPERIMENT_ID` and the intended
+   Drive account/folder consistent across the notebooks.
 5. The first run mounts Drive and downloads checkpoints. Keep substantial free
    disk/RAM. Start with the small pilot; optional sweeps multiply planning time.
 
-Use this repository URL in the parameter cell of both notebooks (the currently
-committed notebooks still contain a placeholder):
+Use this repository URL in notebooks 01/02 (their original source cells still
+contain a placeholder; notebooks 03/04 already include this URL):
 
 ```python
 REPO_URL = "https://github.com/Artifex2002/wm_weight_space_experiments.git"
@@ -221,11 +251,20 @@ EXPERIMENT_ID = "wall-pilot-001"
 DRIVE_FOLDER = "/content/drive/MyDrive/wsp-stopper"
 ```
 
-After your final source/documentation commit, run `git rev-parse HEAD` locally
-and paste that full hash into both parameter cells. Once notebook 01 has run,
-the authoritative commit is `project_commit` inside its saved `protocol.json`.
-Do not switch notebook 02 to a later `main` revision, even for a README-only
-commit: its current guard checks the full project commit.
+For a fresh pilot, choose one exact source commit before notebook 01 and use
+that commit in notebook 02. Once a pilot exists, `protocol.json` is authoritative.
+For the active `wall-pilot-001` and prompt study, retain:
+
+```python
+PROJECT_REF = "2ce606163917e5f9953a5842e61cb322c722c236"
+```
+
+**Do not replace this value with the new commit created when adding notebooks 03/04,
+results or documentation.** The follow-ups are self-contained and deliberately
+check out the earlier source commit even though their notebook files live in a
+later Git revision. Their source guard checks all package `.py` files plus the
+release configuration and original prompt, using relative-path keys identical to
+notebook 02. Do not disable the guard or edit active study receipts.
 
 The notebook files living in `notebooks/` does not require a Python code change.
 Their bootstrap clones the repository into `/content/wsp-stopper` and changes
@@ -295,6 +334,75 @@ Each `ATTEMPT_ID` is retained. An accepted prior submission is reused without a
 new API call; a failed attempt must be preserved and explicitly given a new ID
 if you decide to try again. Declare independent attempts in advance, and report
 all of them. Generation uncertainty is not captured by an episode-only interval.
+
+### Notebook 03 — `notebooks/03_wall_frozen_stopper_diagnostics.ipynb`
+
+Use the Drive account containing notebook 02's completed results, or copy its
+complete result files first. The original three-file baseline handoff alone does
+not include the generated controller/audit needed here.
+
+The notebook verifies identities and reconstructs STOP margins from frozen weights
+and recorded features. It then offers three opt-in GPU sections:
+
+| Switch | Operation | Scope |
+|---|---|---|
+| `RUN_DEPTH_SWEEP` | Depths 3, 5, 10, 15, 20, 25, 30 | Same original six tasks; exploratory |
+| `RUN_HELDOUT` | Fixed 30, frozen stopper, optional preselected fixed depth | Default 12 new tasks; same fixed layout |
+| `RUN_TIMING` | Repeated baseline/stopper evaluations, alternating order | Diagnostic subset, not a population estimate |
+
+Change each flag **inside its existing cell**, then execute the entire cell.
+A separate assignment later in the notebook does not run the skipped body.
+No model generation/API key is needed. Asset setup runs both `prepare` and base
+packet `freeze`, because the latter creates `wall.eval.yaml` and applies pinned
+source patches. Child-process output and logs expose underlying failures.
+
+Outputs go to `EXPERIMENT/analysis/ANALYSIS_ID/`. Completed result files are checked
+and reused. The final export writes actual files and verifies the ZIP. Rerun
+export after new evaluations; an older downloaded ZIP will not update itself.
+Changing frozen settings requires a deliberately new analysis, not overwriting
+old weights/results. The uploaded completed sweep is documented in the log; the
+separate held-out and repeated-timing sections were not run in that upload.
+
+### Notebook 04 — `notebooks/04_wall_prompt_comparison.ipynb`
+
+This freezes the original prompt and a second prompt adding marginal-utility
+framing. It constructs three controllers per prompt with identical model,
+reasoning effort, feature interface, checkpoint access and budgets. Defaults are
+`gpt-6-astra`, `xhigh`, 40 inspections, 200,000 tool-output characters, 45 responses
+and a 32,768-token ceiling per response. Token ceilings include reasoning and are
+not a total dollar cap. The user supplies the key privately via Colab Secrets.
+
+The study saves all six construction slots before generation, accepts one final
+submission per slot, and retains failures/interrupted attempts without replacing
+them. All six slots must settle before any test evaluation. Distinct hashes are
+reported; duplicate controllers would also be retained. No API seed or statistical
+independence is assumed.
+
+The evaluator compares the six controllers and fixed 15/fixed 30 on the same 12
+new episodes. It saves each method/episode separately and rotates execution order.
+With all controllers valid, there are 96 jobs. The default cell runs eight new jobs
+per invocation; rerun until `Remaining jobs: 0`. Completed jobs are not rerun.
+Generation and evaluation require editing `RUN_GENERATION` and `RUN_EVALUATION`
+to `True` in their respective existing cells. Generation is billable; GPU evaluation
+makes no API calls. At the observed T4 rate, cap-heavy evaluations may take roughly
+12–14 GPU hours across resumable sessions. This is an estimate, not a benchmark.
+
+Outputs live at `EXPERIMENT/studies/STUDY_ID/`: frozen study/prompt definitions,
+test tasks, a persistent complete packet, attempt receipts, weights/audits,
+per-episode evaluations and result tables. The active study is
+`wall-prompt-study-001`, with helper SHA
+`d4bd15761f3932c778b8bf17039ec033e3f2d3b1ec667b523089774efdab6ad1`.
+Keep its helper/settings/weights fixed when resuming. GPU model/software changes
+are rejected; different physical sessions are recorded. Paired latency summaries
+use only same-session comparisons.
+
+Summaries include every attempt, valid/failed counts, duplicate hashes,
+per-controller metrics, between-controller variation and paired comparisons with
+both fixed budgets. Wait for `COMPLETE` before interpreting arm-level performance.
+As of the curated snapshot only 8/96 jobs exist; do not treat its blank arm metrics
+as zero scores. The final ZIP excludes large numerical packet arrays and some
+`.py`/`.yaml` source extensions; retain the complete active packet separately in
+Drive. No raw API audit files are committed in the curated results folder.
 
 ### Persistent output layout
 
@@ -481,12 +589,17 @@ visual encoder used strict loading. Real environment execution completed.
 An always-stop-at-3 diagnostic controller produced exactly the same actions as a
 fixed-three-iteration run on the same saved episode and seed.
 
-That diagnostic controller is a wiring test, not an Astra-generated experimental
-controller. No live API generation was performed. The full default GPU pilot,
-Google Drive mounting, Colab Secrets UI and complete hosted Colab execution were
-not run in this environment. Notebook JSON/code syntax and matching embedded
-runtime hashes were checked separately. No claimed success improvement or speedup
-is bundled with these files.
+That diagnostic controller was a wiring test, not an Astra-generated result.
+Those initial local checks did not call the API. Subsequently, user-run Colab
+artifacts established the six-episode pilot, completed depth sweep, six new
+accepted prompt-study controllers and the first new-episode evaluation block.
+The experiment log records the measured outcomes and their limited scope.
+
+Notebook syntax, output clearing, identical evaluator bytes, independent source
+fingerprints and preflight rejection of changed sources are checked locally.
+Fixture tests exercised orchestration/resumption; they are not a substitute for
+GPU inference. Actual evidence comes from the supplied Colab artifacts. The
+prompt study and repeated-timing validation are not complete.
 
 ## 5. Local maintenance commands
 
@@ -521,29 +634,19 @@ The notebooks require `make_packet`/preparation from the Wall upgrade. Editing
 source after freezing a packet requires a new packet and a new generation. An
 old controller should remain bound to the specification that produced it.
 
-## 6. Commit notebooks or README updates
+## 6. Commit the follow-up notebooks and research record
 
-```bash
-git add -- notebooks/01_wall_baseline.ipynb notebooks/02_wall_wsp_comparison.ipynb README.md
-git diff --cached --stat
-git commit -m "feat: add paired Wall baseline and WSP Colab experiments"
-git push
-```
+See [REPO_UPDATE_GUIDE.md](docs/REPO_UPDATE_GUIDE.md) for the exact file inventory,
+copy instructions and two incremental commits. The first adds corrected notebooks,
+integration tests and this guide. The second adds the findings log and curated
+experimental evidence. This preserves a reviewable distinction between tools and
+research observations.
 
-If the notebooks are already in `notebooks/` and only this guide changed:
-
-```bash
-git add -- README.md
-git diff --cached --stat
-git commit -m "docs: update notebook paths and explain two-person Colab handoff"
-git push
-```
-
-Keep notebook outputs cleared before public commits. Ignore `.venv/`, `.env`,
-`assets/`, `packets/`, `runs/` and `.ipynb_checkpoints/` in your local `.gitignore`.
-Do not commit API keys, checkpoint binaries or generated controller/test artifacts
-by accident. The older history-initialization scripts are unnecessary for this
-addition to an existing repo.
+Keep executable notebook outputs cleared. Use explicit `git add` paths; do not
+stage checkpoints, credentials, full inspection packets or raw export archives.
+The deliberately curated `results/` snapshots are the exception for small result
+artifacts, and explicitly state their coverage and missing originals. Working
+Drive studies remain authoritative for resumption.
 
 ## Sources
 

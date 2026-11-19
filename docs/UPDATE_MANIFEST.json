@@ -1,0 +1,852 @@
+{
+  "reference_remote": "https://github.com/Artifex2002/wm_weight_space_experiments",
+  "reference_commit": "2ce606163917e5f9953a5842e61cb322c722c236",
+  "snapshot_date": "2026-11-18 America/New_York",
+  "active_evaluator_sha256": "c850c41dbe72088e3946a0d6ad965423c69675b25d41f0ef38a5aac8da45b299",
+  "active_study_helper_sha256": "d4bd15761f3932c778b8bf17039ec033e3f2d3b1ec667b523089774efdab6ad1",
+  "scope": "Incremental two-commit update; existing src/config/original prompt and notebooks 01/02 already match remote.",
+  "evidence_scope": "Six-task pilot and notebook-derived completed sweep; partial prompt study with six accepted controllers and 8/96 jobs.",
+  "self_note": "This manifest does not hash itself. It belongs in commit_group tools.",
+  "files": [
+    {
+      "path": "README.md",
+      "action": "update",
+      "commit_group": "tools",
+      "bytes": 35284,
+      "sha256": "6f41f5586c52ad6b4815cf9b093145b8567a7fceca606c62df0c34ea0e0ee8b8",
+      "base_sha256": "4ea90754687215caabb26f8b98b06369ca387decd7b0964650e8b6d9ea7ad192"
+    },
+    {
+      "path": "docs/EXPERIMENT_LOG.md",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 24526,
+      "sha256": "fba0e78fdf0cc0e6a9ed30751729f3bcb3e93042f6249f51d84a3d596ba68739",
+      "base_sha256": null
+    },
+    {
+      "path": "docs/REPO_UPDATE_GUIDE.md",
+      "action": "add",
+      "commit_group": "tools",
+      "bytes": 6212,
+      "sha256": "1380092940e6900f937bfb55c729778c01fd2f890426173f9bfc6a9db00d883f",
+      "base_sha256": null
+    },
+    {
+      "path": "notebooks/03_wall_frozen_stopper_diagnostics.ipynb",
+      "action": "add",
+      "commit_group": "tools",
+      "bytes": 48293,
+      "sha256": "c4020bf5b496965fb834fabddbd8eaee7be5c0c5cc54f9945a3e1922b14e82c7",
+      "base_sha256": null
+    },
+    {
+      "path": "notebooks/04_wall_prompt_comparison.ipynb",
+      "action": "add",
+      "commit_group": "tools",
+      "bytes": 74916,
+      "sha256": "242d4e523d2a84a1e702ee9d68233455c76ec8f4bad40689aee1688417b0b1d6",
+      "base_sha256": null
+    },
+    {
+      "path": "results/README.md",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1702,
+      "sha256": "c94d141d7c5688a31a46e9f27e0854de1a8bc16d15d4c24f500ea1fcbdcd7107",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/SNAPSHOT.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 419,
+      "sha256": "fd546f55344464ea0848ef488ecf7d4bae0d77299427e30969bef969216e4f65",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/baseline_k30.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 33620,
+      "sha256": "b9b7567dfd9582543e697c2d7812c63f67e14f82592dc98153a40fc4b461a974",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/baseline_recheck_attempt-001.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 33617,
+      "sha256": "705d39af48909e7b572c685ebebdef0e57801fccd1218eadb09a6a9d51ffb3b1",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/comparison_attempt-001.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 525,
+      "sha256": "7c5b15a98e6b78f789d321cff95f00b76a6c6ee145e8e77056a11c69d599946e",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/controller/accepted_controller.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 290,
+      "sha256": "2193bcbcc613f9e7cf0aefdfd226a83dc09d67c987527c87c2965ea540224b4b",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/controller/prompt.txt",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 3056,
+      "sha256": "d49fcf5eb9449832fbd5cf6458b5f5476e415e12975352d82acde6d83c02fa07",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/controller/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4362,
+      "sha256": "4c8028b631d9b958bbf9e2d22dc90df6cd9a684e7c62f016c7e65292ddfa4ebd",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/controller/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 170,
+      "sha256": "465779ca9d5204958ddcebf4c328be116f7f70e2c2da0696b70f7014c1378183",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/controller/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1921,
+      "sha256": "ebffe6522a6e0d6aa3cbdd6f34548835e2c403a24fd947d703d3c4e1ccf37060",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/depth_sweep/PROVENANCE.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 679,
+      "sha256": "3b8b2646222ee9dd2a962c9d56c48c89988f4ffa3f8d0a2520da8d1c971344d0",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/depth_sweep/README.md",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1064,
+      "sha256": "7a9204f2c4ad972d5da654f02a3ffbc51525076958cda484b10dab3a72fbb32a",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/depth_sweep/episode_success.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 2950,
+      "sha256": "0665701876951efb5f5c3ded9371ca117dcb04ce80d0d253999b134ffb825a5e",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/depth_sweep/summary_from_notebook.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 591,
+      "sha256": "e486301489a9de4dc75fdd69e313a6523a16add99bd8a64aff115b6236fa7b94",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/diagnostics/audit_summary.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 739,
+      "sha256": "f0b35ab050d79fffcbcb5e21b7f6a14bd629dad59e727358fca0200da26e0a78",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/diagnostics/decision_margins.png",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 154368,
+      "sha256": "5233a2f6c9900976fa8830c29f188b2e0fd2858a93528cdddf747c54a463ce7a",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/diagnostics/inspection_audit.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 2308,
+      "sha256": "7eb20e5ff6ebd5fc6187ce7f5d2760ac116390ff0e81df33c7de89580ad92dc6",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/diagnostics/inspection_calls.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1111,
+      "sha256": "0626b14a9ee6ca33ee15d7db652b5b60f88e87e493bebeb2140a878914f27e48",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/diagnostics/stopper_trace.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 34327,
+      "sha256": "f4aab764ddca17101079bddd5c7105e116cff811c6513ca63852ac73ca08c482",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/paired_attempt-001.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 668,
+      "sha256": "5203d7bb51c7c6dae35a440435a72974d4d5eb7d0f7a61492f7c7269e63871d0",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/protocol.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 2716,
+      "sha256": "ed13ae60568697cdfaa18cba8649902c17b34c6979469c85ded80590c3876945",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/summary_attempt-001.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 267,
+      "sha256": "4bac6400adf2dba2b7be7a2374b99c43efd7acc3766414e2586c8ccd720d322e",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/tasks.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1840,
+      "sha256": "b9fd1657677b3d5d1f615e51c97601e2486ea799a9e99839512fc24174b79f74",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-pilot-001/wsp_attempt-001.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 95964,
+      "sha256": "e5233cb54583ed91d6872843d5151319d863415b9a6c1301431696b5f4e3079e",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/README.md",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1592,
+      "sha256": "648134462444002d7f4ec8945b73d16dead141545c30a30b96befd547c08204c",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/SNAPSHOT.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 635,
+      "sha256": "071af8041d19ef8fbca84f8567cf00ea3a645327ea6bfd747ca18bd07121c65a",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/arm_summary.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 324,
+      "sha256": "e0dde4119121a7128ac2b68b95a811577acf0d25a6eb21405912dc89898d5aa8",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/attempt_receipts/marginal_utility_r01.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 502,
+      "sha256": "f207d36287a16aca72d4ce5d74a2b3daed84a15bacdba25c35428059b6060018",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/attempt_receipts/marginal_utility_r02.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 502,
+      "sha256": "6172e0fcd36de91823bc44f0eb3786f449bed5ca911454a9223b14be10d5e9ea",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/attempt_receipts/marginal_utility_r03.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 502,
+      "sha256": "a8e3a20d819d09c734bcc8df51b3477ea1137e2e4db0ef29fb3cb6e733ca79b8",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/attempt_receipts/original_r01.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 486,
+      "sha256": "ffb39c455643db26a23968f4852bec5d7b2b299e1b2b9cf12f0a49c1058eeb91",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/attempt_receipts/original_r02.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 486,
+      "sha256": "0b072067434b8bd3407395e47b652c22460713c680a4419fa4f825405e30a565",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/attempt_receipts/original_r03.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 486,
+      "sha256": "302402e3b3864ede97ce67c37016c77bb1c7fc71668ca6bbe2c3bc751b2062a8",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/episode_results.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1294,
+      "sha256": "0175d11ba614a99ba1fd25ad4d53c4d5464e1ec5bc779a4403379c7c787c35f1",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/fixed_15.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 7386,
+      "sha256": "ba719bdb4622af4705fae0438b2b68c1e1860cfafe8d51aa649d4fe05300a3fc",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/fixed_15.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 860,
+      "sha256": "4756a67060b97076b45ec94990e32952d9a9ae360e75213b1e90d700abc4d94c",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/fixed_15.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 712,
+      "sha256": "4d44b396d9208a66007ad173633a78a5841dcac69f8e75e6b8fe3540be3f679a",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/fixed_30.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 7372,
+      "sha256": "4b7605f89004247e7c83e493bc6ebab561c5a27fb873f6c1225137258f97997d",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/fixed_30.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 860,
+      "sha256": "37bf0c57030dd01190744aa85f00a24be1f233f20d62d25b6a3aecc33aab62ac",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/fixed_30.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 712,
+      "sha256": "29269abdc8018c0fc39015401374750487df72955f8b448b14948f0e63ccf367",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r01.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 18228,
+      "sha256": "b40657e18ddb6a9dd798294f763f373136d00d95bb61bd9887109012f68f3dad",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r01.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 934,
+      "sha256": "b50cdff7f56ef7ed03201233b59f236f0d156b42bb7a9a47401a4a36966b25aa",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r01.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 786,
+      "sha256": "ba96fe598570fb32931567f715dbf52d9f055e271c96840c231a01dfae1bcb48",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r02.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 18224,
+      "sha256": "8e81868d218152f145a6615f88d9f09dd37785a1ba7fd95ba9190bb1ec82f907",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r02.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 934,
+      "sha256": "c48667e339b4cd98908b96788035cca907e434c357b35ef17463e3eaeaa485e4",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r02.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 786,
+      "sha256": "9de2f7ca537389e08eaac20d4187da19222fc70ec8cb475ce6ce318682009250",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r03.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 17177,
+      "sha256": "1d0c28575a743961eb28fa8621c826aa4916b1aaca348a8b356fd6bf44b26e01",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r03.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 934,
+      "sha256": "83bf0369e0e7ea842fc9f856318838c74b5a7e4cc46dc5406602b16f810821ed",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/marginal_utility_r03.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 786,
+      "sha256": "baf46bf365292dab739ffaafbcf89862d7b7f6721c36e9d3d5c00b839744bde8",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r01.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 18228,
+      "sha256": "d760a33c794e1abea41be3966bbdc22fec6c33a41b2225da301351675b1afa20",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r01.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 926,
+      "sha256": "ee35d785365afd41f636b370bea9497469518912f8eb533c8da8884af9922980",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r01.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 778,
+      "sha256": "05522934e659deeb5ad43e5e94b594f9d17821b106a4907d7676835439db6871",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r02.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 18228,
+      "sha256": "937f85bf9cba2c2b78f4e055f77864a166e69c86ba66255d7ca39f6c5fbcfe22",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r02.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 926,
+      "sha256": "93501d64975650ac02d6b121539090e1f53099b3baaaf8e8b54d6d6a4566ce19",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r02.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 778,
+      "sha256": "59014f353cef631bafce173075a637fadd1deb1de00d7b0814e804fe716cc3c1",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r03.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 18228,
+      "sha256": "4e2bc247284b7939852a60ded20c5aa5c3b7a0c577de5189e7d08443bb54fcd9",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r03.receipt.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 926,
+      "sha256": "f9d6c68076ff4aa52b6b1d1ed7db59bac1ae0315b8760e0855dd5bb5413b69a5",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/evaluations/episode_000/original_r03.started.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 778,
+      "sha256": "ba387259c94e5003732282980d50ed7059d2ea27438b4468bd77ccb22956ffc6",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r01/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4362,
+      "sha256": "10cf87c970571d04e3fa99dcc8d66e5e67e2c7882385a6ead12975cac5080656",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r01/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 169,
+      "sha256": "f53b530008a722baee088953d64a8735f3f9b79d236c3c633fb1de3e7699d710",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r01/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1887,
+      "sha256": "5cb120016dd1c7af08d3c754f0e38d3d5f6c1de47074c31c7307d234945b2088",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r02/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4361,
+      "sha256": "02c92d845b6984feb6c0b930fbea0d7a9ea8fdd43cefc23d8d3776b32768b2dc",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r02/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 170,
+      "sha256": "f5bd97835e8a78baf8a62b3776933296caf1b5fd5dcc24eb5ec82f4e1b052845",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r02/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1886,
+      "sha256": "6f1b24440d026e0056612e9d7bf418c88f12bfe65e5476c434f7ff0cfc46ee65",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r03/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4361,
+      "sha256": "9eaeb6665433043f9a2ef20664a3ce27ff2574b4d5f26d2127d80b1bafb74191",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r03/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 170,
+      "sha256": "9bb0c862e53dffb657696b090ae27baca34e0f997d8334d87789c17e9c37b455",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/marginal_utility_r03/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1885,
+      "sha256": "985cd287f4b4d662063473dfa51a3ac270aaf080b37b03a3a75076933d1ef68b",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r01/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4362,
+      "sha256": "8b3e7f6395769afbc88528859640088295909363236f082dd9e881c0e7cc7135",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r01/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 169,
+      "sha256": "b54a086f3c1f9e23c0211f6d59382f03714a320b305f9f340df484d137d4514f",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r01/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1957,
+      "sha256": "5b9d18f3835ea8ba6cbb08c4c87d57bfeea30d1b71297803979883a6feb6ade3",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r02/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4362,
+      "sha256": "cd72c5c17af77824cf9534ff7384e76e88d715fa8bacec36650c6c0b571715d7",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r02/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 169,
+      "sha256": "4d794cc874050619993b7a162bfd647dc2da0a8ef04df7cdc18ad0d16a4ccf23",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r02/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1898,
+      "sha256": "70c164089efe1c9d4ec298e3d21b12c788fca55de7f3f49df9cfeac75a80654f",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r03/run.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 4362,
+      "sha256": "c816389292ec5158f142b2e48c87aa9408688e5695c9e4700ed7b528930c00d1",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r03/submission.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 170,
+      "sha256": "c2ce87768e3c216bec676fe71f01b6d42ef4d9100eaa747b2aea93285b01caf7",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation/original_r03/weights.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1921,
+      "sha256": "833cb9185d99c8d95eda5524565ab3475f68265cd40fb989c260c1f185624021",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation_status.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1117,
+      "sha256": "c7ed18f9fd74da3ddbf8f63165c4f4539f2975e60b773fc93108b4a5c9dd391b",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/generation_status.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 2783,
+      "sha256": "e2bd3245be245a5e56b573b872bab158cb52944c6568707cbf18377176eb8cfd",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/inspection_audit.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 16298,
+      "sha256": "d8b79249616029cf6ce524cd4f5279a061b30ab51d2a61e5dbed063b7531bf2d",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/method_summary.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 643,
+      "sha256": "36419bbfeb3472851dc62d480f191debb5da967e91be559557adcad7988035a3",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/packet_manifest.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 97888,
+      "sha256": "0f9776833cc323be808316d448814ed86094072af3837c2111b6c8675ecc1234",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/paired_comparisons.csv",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 1101,
+      "sha256": "22241d80772762de3f4f1d36c2b0c00e62dc84e347a01806599c6aae579216fa",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/prompts/marginal_utility.txt",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 3788,
+      "sha256": "92bcadeb8198faa011f9146c5777890527a21304520401a0cbb824360f9b069a",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/prompts/original.txt",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 3056,
+      "sha256": "d49fcf5eb9449832fbd5cf6458b5f5476e415e12975352d82acde6d83c02fa07",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/study.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 17956,
+      "sha256": "fed94ba80bed1e4f09687481e72de475ddab021ef4cc808533b4554d0c974843",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/summary.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 540,
+      "sha256": "9b7710e0950491ec5d3e10ccb64305dba4777a80799298b25d75cd2707f4ab8d",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_000.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 384,
+      "sha256": "a99abf83bde6cb7c57b8b76a3074bcaebb56bbd7b4af0660b40d68969be2d4db",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_001.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 386,
+      "sha256": "f730ba842ab8fbcbeb548ce9911254cb93cf4893986d501723d39c95e654d7f1",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_002.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 384,
+      "sha256": "b5d64aa02c7447bc5462d331654fae5c98a16819e1b54cf3efead9a6c21d4fde",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_003.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 384,
+      "sha256": "033afd59e78dc477e5353094cbb0cc94ea9826612b3a0ba60ee47498785a73ab",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_004.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 383,
+      "sha256": "6c7223da95aeae4f4cc722437c293a74a2235ce560764cf66946b5324bd5dcd6",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_005.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 383,
+      "sha256": "010a7efe91440d8e444b7af4c5b647a709ddd3d60f66d6160c789097f3aee467",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_006.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 379,
+      "sha256": "cabe01c0090bdcb73bf3c00d433154af1eb68cc5049dcb698b37daa16db95004",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_007.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 381,
+      "sha256": "162db3664ff247c4aa147cd03e35b19e1d22432d532f2ffc315f760f72d2ada9",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_008.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 384,
+      "sha256": "a660519983a6564b1c6f61144a7cd8e896edebee81bacb94b50d9a4ddcdd8d8e",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_009.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 386,
+      "sha256": "e6687c75fb1c82ef8ca65629f42b5244e795ca59b3ab4f1622291fe204f7ee23",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_010.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 386,
+      "sha256": "9ef70a19df422fe7c98225f27e29fd402408eca3bb541bc678b0ee9ea785cb1c",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/tasks/episode_011.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 383,
+      "sha256": "971b87a86b066ae4abdaf99fa40f38317451e10c8ba38a07a3c086736c8c6617",
+      "base_sha256": null
+    },
+    {
+      "path": "results/wall-prompt-study-001/test_tasks.json",
+      "action": "add",
+      "commit_group": "research",
+      "bytes": 3602,
+      "sha256": "02143decec11e008872c4de66fa1192e7fed2d0650038f3db97bc6a50b986004",
+      "base_sha256": null
+    },
+    {
+      "path": "tests/test_notebooks.py",
+      "action": "add",
+      "commit_group": "tools",
+      "bytes": 6723,
+      "sha256": "9d250f6c220e416f40b508555a92634f761f44cff2ebf6933cdd3597de7c4eb3",
+      "base_sha256": null
+    }
+  ]
+}
