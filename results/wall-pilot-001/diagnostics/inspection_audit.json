@@ -1,0 +1,108 @@
+{
+  "counts": {
+    "read_source": 7,
+    "list_tensors": 1,
+    "read_tensor": 2
+  },
+  "calls": [
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/042_042_042_planner.py.txt",
+        "start_line": 1,
+        "line_count": 200
+      },
+      "result_chars": 9290,
+      "error": null
+    },
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/042_042_042_planner.py.txt",
+        "start_line": 215,
+        "line_count": 200
+      },
+      "result_chars": 9724,
+      "error": null
+    },
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/041_041_041_objectives.py.txt",
+        "start_line": 1,
+        "line_count": 200
+      },
+      "result_chars": 9104,
+      "error": null
+    },
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/093_wsp_wall_notebook_runtime.py",
+        "start_line": 1,
+        "line_count": 200
+      },
+      "result_chars": 11183,
+      "error": null
+    },
+    {
+      "tool": "list_tensors",
+      "arguments": {
+        "offset": 175,
+        "limit": 79
+      },
+      "result_chars": 21138,
+      "error": null
+    },
+    {
+      "tool": "read_tensor",
+      "arguments": {
+        "name": "action_encoder.module.patch_embed.weight",
+        "offset": 0,
+        "count": 100
+      },
+      "result_chars": 2090,
+      "error": null
+    },
+    {
+      "tool": "read_tensor",
+      "arguments": {
+        "name": "proprio_encoder.module.patch_embed.weight",
+        "offset": 0,
+        "count": 20
+      },
+      "result_chars": 501,
+      "error": null
+    },
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/022_022_022_vit_enc_preds.py.txt",
+        "start_line": 1,
+        "line_count": 200
+      },
+      "result_chars": 9191,
+      "error": null
+    },
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/022_022_022_vit_enc_preds.py.txt",
+        "start_line": 230,
+        "line_count": 200
+      },
+      "result_chars": 11071,
+      "error": null
+    },
+    {
+      "tool": "read_source",
+      "arguments": {
+        "path": "sources/092_093_cem_hook.py",
+        "start_line": 1,
+        "line_count": 200
+      },
+      "result_chars": 1136,
+      "error": null
+    }
+  ]
+}

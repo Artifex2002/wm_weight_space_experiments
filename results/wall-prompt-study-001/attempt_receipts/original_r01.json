@@ -1,0 +1,13 @@
+{
+  "attempt": {
+    "id": "original_r01",
+    "variant": "original",
+    "replicate": 1
+  },
+  "status": "accepted",
+  "started_at": "2026-11-18T23:12:49.631502+00:00",
+  "packet_sha256": "0f9776833cc323be808316d448814ed86094072af3837c2111b6c8675ecc1234",
+  "prompt_sha256": "d49fcf5eb9449832fbd5cf6458b5f5476e415e12975352d82acde6d83c02fa07",
+  "finished_at": "2026-11-18T23:17:02.294666+00:00",
+  "weights_sha256": "5b9d18f3835ea8ba6cbb08c4c87d57bfeea30d1b71297803979883a6feb6ade3"
+}

@@ -1,0 +1,9 @@
+method,episodes,success_rate,mean_depth,mean_utility,mean_planning_seconds,mean_transition_evals,generation_status
+fixed_15,1,1.0,15.0,0.975,260.0206139330003,27090.0,baseline
+fixed_30,1,1.0,30.0,0.95,507.30583843999966,54180.0,baseline
+original_r01,1,1.0,30.0,0.95,517.9000282890001,54180.0,accepted
+marginal_utility_r01,1,1.0,30.0,0.95,518.4691331209997,54180.0,accepted
+marginal_utility_r02,1,1.0,30.0,0.95,518.852686235,54180.0,accepted
+original_r02,1,1.0,30.0,0.95,519.3332997410007,54180.0,accepted
+original_r03,1,1.0,30.0,0.95,520.4927624029997,54180.0,accepted
+marginal_utility_r03,1,1.0,27.0,0.955,465.70441845999994,48762.0,accepted

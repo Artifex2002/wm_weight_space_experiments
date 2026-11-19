@@ -1,0 +1,12 @@
+{
+  "source_archive": "wall-prompt-study-001-20261119T004357Z.zip",
+  "source_archive_sha256": "d9c216c817c1274236b75f8ad647d5351e5c1729ea3d8e82541c90a3266be9bb",
+  "status": "PARTIAL: six accepted controllers; one of twelve episodes evaluated for eight methods; 8/96 jobs",
+  "excluded": [
+    "raw API event streams",
+    "third-party source copies",
+    "checkpoint and packet tensor arrays",
+    "process logs"
+  ],
+  "packet_note": "packet_manifest.json is inventory/provenance only, not a runnable packet. Source archive also omitted four .py/.yaml source files via its export filter. Active complete packet remains in Drive."
+}

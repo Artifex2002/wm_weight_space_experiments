@@ -1,0 +1,42 @@
+{
+  "project_commit": "2ce606163917e5f9953a5842e61cb322c722c236",
+  "project_files": {
+    "config/wall.release.json": "0f7dd9703de4dcee72d26d658735d1ad3ee9c5333ff1f7b06306171d8369dea6",
+    "prompts/generate.md": "d49fcf5eb9449832fbd5cf6458b5f5476e415e12975352d82acde6d83c02fa07",
+    "src/wsp_stopper/__init__.py": "cceb90c4b5cd665fa53a90aa3c622862d59751f74591acbe6706df185884cfcb",
+    "src/wsp_stopper/agent.py": "8f8cac58dda81b051ee0cce8cc4d55d6955704ae5037675feb0f759b9aa98b08",
+    "src/wsp_stopper/cem_hook.py": "670c119d4406b6f9d97be26ec9c4f57d0914cecf04e24d6bde954fcd87657e44",
+    "src/wsp_stopper/cli.py": "9fbef89b1c5e7fd7856ed1aa8d430d0365fb062238df7bbe06d114bda19f5ee0",
+    "src/wsp_stopper/core.py": "34bbc68cfe544b21aa1497af640c4ecb87c46a3082c7937f2f8be83cbd0850ba",
+    "src/wsp_stopper/inspection.py": "f3bfaf6a92da4915f8480baa71c52afffdb6545460ce795ba30590ac3d02d19a",
+    "src/wsp_stopper/packet.py": "959abe8525984bdd40f6fbc10f960a56e9db799d5d8f6710bc3cb6849ec61af2",
+    "src/wsp_stopper/upstream_patch.py": "45ce89ddf9bbcb532a3744821effcc0617082df5936448c3f0501680b5ebe640",
+    "src/wsp_stopper/wall_setup.py": "8921bb727d2f224b42457b8bbf2a68fa9944cdd34e0738bd38921a1924662b29"
+  },
+  "runtime_sha256": "c850c41dbe72088e3946a0d6ad965423c69675b25d41f0ef38a5aac8da45b299",
+  "tasks_sha256": "b9fd1657677b3d5d1f615e51c97601e2486ea799a9e99839512fc24174b79f74",
+  "count": 6,
+  "seed_start": 1000,
+  "fixed_depths": [
+    30
+  ],
+  "population": 300,
+  "elites": 10,
+  "microbatch": 16,
+  "primary_depth": 30,
+  "checkpoint_lock": {
+    "upstream_url": "https://github.com/facebookresearch/jepa-wms.git",
+    "upstream_commit": "13cf1d9c7e476f53c17714d2e0f1dc239a883ce0",
+    "dinov2_url": "https://github.com/facebookresearch/dinov2.git",
+    "dinov2_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "checkpoint_url": "https://huggingface.co/facebook/jepa-wms/resolve/9b9c41ef249466630dbf1a20e78391865d07b3b9/dino_wm_wall.pth.tar",
+    "checkpoint_sha256": "ff170be5aec9249768be4a220d600b8f00a8589b2a78982ecf9273809f2767df",
+    "encoder_url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+    "encoder_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+    "upstream_config": "configs/evals/simu_env_planning/wall/dino-wm/wall_L2_cem_sourcerandstate_H6_nas6_ctxt2_r224_alpha0.1_ep96_decode.yaml",
+    "planner_source": "evals/simu_env_planning/planning/planning/planner.py",
+    "planner_sha256": "6b673d10b30cd66d07b09daa7b96397f367f49387c443731b6d7d2fd148cc0e3",
+    "encoder_source": "app/plan_common/models/dino.py",
+    "encoder_source_sha256": "6994115d43796ceda054509eb6bac9b9ea62ae1115b4d0f9dae25122f7ab0e9f"
+  }
+}

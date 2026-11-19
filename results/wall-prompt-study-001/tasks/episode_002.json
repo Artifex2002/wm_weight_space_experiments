@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "task": "Wall fixed layout cross-room navigation",
+  "episodes": [
+    {
+      "id": 2,
+      "environment_seed": 3002,
+      "planner_seed": 2000002,
+      "start": [
+        48.70980768543244,
+        38.126019710895726
+      ],
+      "goal": [
+        9.648009353551636,
+        13.626327927063489
+      ],
+      "wall_x": 32.0,
+      "door_y": 30.0
+    }
+  ]
+}

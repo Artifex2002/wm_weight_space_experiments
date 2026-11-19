@@ -1,0 +1,13 @@
+{
+  "attempt": {
+    "id": "marginal_utility_r03",
+    "variant": "marginal_utility",
+    "replicate": 3
+  },
+  "status": "accepted",
+  "started_at": "2026-11-18T23:33:26.451570+00:00",
+  "packet_sha256": "0f9776833cc323be808316d448814ed86094072af3837c2111b6c8675ecc1234",
+  "prompt_sha256": "92bcadeb8198faa011f9146c5777890527a21304520401a0cbb824360f9b069a",
+  "finished_at": "2026-11-18T23:39:05.392570+00:00",
+  "weights_sha256": "985cd287f4b4d662063473dfa51a3ac270aaf080b37b03a3a75076933d1ef68b"
+}

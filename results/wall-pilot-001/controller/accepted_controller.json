@@ -1,0 +1,6 @@
+{
+  "weights_sha256": "ebffe6522a6e0d6aa3cbdd6f34548835e2c403a24fd947d703d3c4e1ccf37060",
+  "tasks_sha256": "b9fd1657677b3d5d1f615e51c97601e2486ea799a9e99839512fc24174b79f74",
+  "packet_sha256": "bd3e72f941ac6f526f9610a322d83aea53544fbbf2e7377884acc9c7775f3e9b",
+  "model": "gpt-6-astra"
+}

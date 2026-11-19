@@ -1,0 +1,43 @@
+depth,episode_id,success,planning_seconds_display,source
+3,0,False,39.65,notebook console; seconds rounded to two decimals
+3,1,True,41.97,notebook console; seconds rounded to two decimals
+3,2,True,45.74,notebook console; seconds rounded to two decimals
+3,3,False,45.91,notebook console; seconds rounded to two decimals
+3,4,False,45.67,notebook console; seconds rounded to two decimals
+3,5,True,45.72,notebook console; seconds rounded to two decimals
+5,0,True,77.28,notebook console; seconds rounded to two decimals
+5,1,True,76.27,notebook console; seconds rounded to two decimals
+5,2,True,76.05,notebook console; seconds rounded to two decimals
+5,3,False,76.36,notebook console; seconds rounded to two decimals
+5,4,False,76.59,notebook console; seconds rounded to two decimals
+5,5,True,76.6,notebook console; seconds rounded to two decimals
+10,0,True,152.87,notebook console; seconds rounded to two decimals
+10,1,True,151.79,notebook console; seconds rounded to two decimals
+10,2,True,152.16,notebook console; seconds rounded to two decimals
+10,3,False,152.53,notebook console; seconds rounded to two decimals
+10,4,False,152.71,notebook console; seconds rounded to two decimals
+10,5,True,152.51,notebook console; seconds rounded to two decimals
+15,0,True,229.73,notebook console; seconds rounded to two decimals
+15,1,True,228.52,notebook console; seconds rounded to two decimals
+15,2,True,228.55,notebook console; seconds rounded to two decimals
+15,3,True,228.79,notebook console; seconds rounded to two decimals
+15,4,False,228.84,notebook console; seconds rounded to two decimals
+15,5,True,228.9,notebook console; seconds rounded to two decimals
+20,0,True,305.63,notebook console; seconds rounded to two decimals
+20,1,True,304.94,notebook console; seconds rounded to two decimals
+20,2,True,304.59,notebook console; seconds rounded to two decimals
+20,3,True,304.88,notebook console; seconds rounded to two decimals
+20,4,False,305.05,notebook console; seconds rounded to two decimals
+20,5,True,305.66,notebook console; seconds rounded to two decimals
+25,0,True,382.07,notebook console; seconds rounded to two decimals
+25,1,True,381.24,notebook console; seconds rounded to two decimals
+25,2,True,381.23,notebook console; seconds rounded to two decimals
+25,3,True,381.24,notebook console; seconds rounded to two decimals
+25,4,False,381.27,notebook console; seconds rounded to two decimals
+25,5,True,380.56,notebook console; seconds rounded to two decimals
+30,0,True,489.6769103859999,cached original baseline JSON; earlier session
+30,1,True,508.09458821499993,cached original baseline JSON; earlier session
+30,2,True,508.83368324699995,cached original baseline JSON; earlier session
+30,3,True,512.5356780420002,cached original baseline JSON; earlier session
+30,4,False,512.1490540159998,cached original baseline JSON; earlier session
+30,5,True,511.19820662300026,cached original baseline JSON; earlier session

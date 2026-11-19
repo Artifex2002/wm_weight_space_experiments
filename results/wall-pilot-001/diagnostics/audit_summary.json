@@ -1,0 +1,27 @@
+{
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "inspection_calls": 10,
+  "inspection_counts": {
+    "read_source": 7,
+    "list_tensors": 1,
+    "read_tensor": 2
+  },
+  "sources_read": [
+    "sources/022_022_022_vit_enc_preds.py.txt",
+    "sources/041_041_041_objectives.py.txt",
+    "sources/042_042_042_planner.py.txt",
+    "sources/092_093_cem_hook.py",
+    "sources/093_wsp_wall_notebook_runtime.py"
+  ],
+  "tensors_read": [
+    "action_encoder.module.patch_embed.weight",
+    "proprio_encoder.module.patch_embed.weight"
+  ],
+  "api_usage": {
+    "input_tokens": 210595,
+    "output_tokens": 6124,
+    "reasoning_tokens": 5272
+  },
+  "weights_sha256": "ebffe6522a6e0d6aa3cbdd6f34548835e2c403a24fd947d703d3c4e1ccf37060"
+}

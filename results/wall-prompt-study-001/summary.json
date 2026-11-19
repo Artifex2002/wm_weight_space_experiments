@@ -1,0 +1,11 @@
+{
+  "complete": false,
+  "planned_controllers": 6,
+  "valid_controllers": 6,
+  "test_episodes": 12,
+  "completed_method_episode_jobs": 8,
+  "expected_executable_jobs": 96,
+  "interpretation": "Descriptive pilot. Episodes are paired, controllers share episodes, and duplicate weights are retained. No equivalence or significance claim.",
+  "timing": "Only same-session/device/software pairs enter paired latency savings; no repeated-timing study here.",
+  "study_sha256": "fed94ba80bed1e4f09687481e72de475ddab021ef4cc808533b4554d0c974843"
+}

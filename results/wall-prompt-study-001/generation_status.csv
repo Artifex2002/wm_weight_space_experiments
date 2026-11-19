@@ -1,0 +1,7 @@
+id,variant,replicate,status,weights_sha256,inspection_calls,tensor_read_calls,inspection_output_chars,api_response_models,api_input_tokens,api_cached_input_tokens,api_output_tokens,api_reasoning_tokens
+original_r01,original,1,accepted,5b9d18f3835ea8ba6cbb08c4c87d57bfeea30d1b71297803979883a6feb6ade3,7,0,55427,gpt-6-astra,104229,83886,6572,5812
+marginal_utility_r01,marginal_utility,1,accepted,5cb120016dd1c7af08d3c754f0e38d3d5f6c1de47074c31c7307d234945b2088,7,0,55297,gpt-6-astra,104194,83797,7479,6748
+marginal_utility_r02,marginal_utility,2,accepted,6f1b24440d026e0056612e9d7bf418c88f12bfe65e5476c434f7ff0cfc46ee65,12,2,99563,gpt-6-astra,272095,238244,8410,7508
+original_r02,original,2,accepted,70c164089efe1c9d4ec298e3d21b12c788fca55de7f3f49df9cfeac75a80654f,8,0,57051,gpt-6-astra,121935,104452,7057,6276
+original_r03,original,3,accepted,833cb9185d99c8d95eda5524565ab3475f68265cd40fb989c260c1f185624021,10,2,78888,gpt-6-astra,186961,161021,6433,5576
+marginal_utility_r03,marginal_utility,3,accepted,985cd287f4b4d662063473dfa51a3ac270aaf080b37b03a3a75076933d1ef68b,11,0,81976,gpt-6-astra,199073,174963,10951,10070

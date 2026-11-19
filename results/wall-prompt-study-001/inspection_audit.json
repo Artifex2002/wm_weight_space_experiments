@@ -1,0 +1,620 @@
+[
+  {
+    "attempt": "original_r01",
+    "counts": {
+      "read_source": 7
+    },
+    "calls": [
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9290,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 220,
+          "line_count": 200
+        },
+        "result_chars": 9854,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/041_041_041_objectives.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9104,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/093_wsp_wall_notebook_runtime.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 11183,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/033_033_033_wall.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9838,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/092_093_cem_hook.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 1136,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/091_092_core.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5022,
+        "error": null
+      }
+    ],
+    "visible_model_messages": [
+      "I\u2019ll use a conservative convergence heuristic requiring small changes in both recent elite costs, low elite dispersion, proposal contraction, and a stable first action. It will not treat normalized cost as proof of success. This controller is untested; no performance claim is implied.\n"
+    ]
+  },
+  {
+    "attempt": "marginal_utility_r01",
+    "counts": {
+      "read_source": 7
+    },
+    "calls": [
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9290,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 215,
+          "line_count": 200
+        },
+        "result_chars": 9724,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/041_041_041_objectives.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9104,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/093_wsp_wall_notebook_runtime.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 11183,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/033_033_033_wall.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9838,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/092_093_cem_hook.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 1136,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/091_092_core.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5022,
+        "error": null
+      }
+    ],
+    "visible_model_messages": [
+      "I\u2019ll use a conservative marginal-benefit heuristic rather than treat latent cost as a success probability. Recent progress, elite separation, and proposal uncertainty favor continuing. Relative cost limits the improvement proxy but is not a success cutoff. The controller imposes no fixed stopping depth beyond the interface limits; its performance remains unmeasured.\n"
+    ]
+  },
+  {
+    "attempt": "marginal_utility_r02",
+    "counts": {
+      "read_source": 9,
+      "list_tensors": 1,
+      "read_tensor": 2
+    },
+    "calls": [
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9290,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 220,
+          "line_count": 200
+        },
+        "result_chars": 9854,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/041_041_041_objectives.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9104,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/093_wsp_wall_notebook_runtime.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 11183,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/033_033_033_wall.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9838,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/092_093_cem_hook.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 1136,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/091_092_core.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5022,
+        "error": null
+      },
+      {
+        "tool": "list_tensors",
+        "arguments": {
+          "offset": 175,
+          "limit": 79
+        },
+        "result_chars": 21138,
+        "error": null
+      },
+      {
+        "tool": "read_tensor",
+        "arguments": {
+          "name": "action_encoder.module.patch_embed.weight",
+          "offset": 0,
+          "count": 100
+        },
+        "result_chars": 2090,
+        "error": null
+      },
+      {
+        "tool": "read_tensor",
+        "arguments": {
+          "name": "proprio_encoder.module.patch_embed.weight",
+          "offset": 0,
+          "count": 20
+        },
+        "result_chars": 501,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/022_022_022_vit_enc_preds.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9191,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/022_022_022_vit_enc_preds.py.txt",
+          "start_line": 225,
+          "line_count": 200
+        },
+        "result_chars": 11216,
+        "error": null
+      }
+    ],
+    "visible_model_messages": [
+      "I\u2019ll use an adaptive marginal-opportunity rule, not a fixed stopping depth. Recent gains, elite spread, regressions, and proposal/action variability favor continuing. Relative cost is not treated as a calibrated success threshold. This is a heuristic; no performance has been measured.\n"
+    ]
+  },
+  {
+    "attempt": "original_r02",
+    "counts": {
+      "read_source": 8
+    },
+    "calls": [
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9290,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 240,
+          "line_count": 200
+        },
+        "result_chars": 9859,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/041_041_041_objectives.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9104,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/093_wsp_wall_notebook_runtime.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 11183,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 214,
+          "line_count": 38
+        },
+        "result_chars": 1619,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/033_033_033_wall.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9838,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/092_093_cem_hook.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 1136,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/091_092_core.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5022,
+        "error": null
+      }
+    ],
+    "visible_model_messages": [
+      "I\u2019ll use a conservative convergence rule requiring small cost changes over both recent iterations, low elite-cost spread, contraction of the full proposal, and a stable first action. I won\u2019t treat normalized cost as a calibrated success signal. This controller is untested; it retains the 30-iteration fallback."
+    ]
+  },
+  {
+    "attempt": "original_r03",
+    "counts": {
+      "read_source": 7,
+      "list_tensors": 1,
+      "read_tensor": 2
+    },
+    "calls": [
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9290,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 210,
+          "line_count": 200
+        },
+        "result_chars": 9586,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/041_041_041_objectives.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9104,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/093_wsp_wall_notebook_runtime.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 11183,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/092_093_cem_hook.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 1136,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/091_092_core.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5022,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/033_033_033_wall.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9838,
+        "error": null
+      },
+      {
+        "tool": "list_tensors",
+        "arguments": {
+          "offset": 175,
+          "limit": 80
+        },
+        "result_chars": 21138,
+        "error": null
+      },
+      {
+        "tool": "read_tensor",
+        "arguments": {
+          "name": "action_encoder.module.patch_embed.weight",
+          "offset": 0,
+          "count": 100
+        },
+        "result_chars": 2090,
+        "error": null
+      },
+      {
+        "tool": "read_tensor",
+        "arguments": {
+          "name": "proprio_encoder.module.patch_embed.weight",
+          "offset": 0,
+          "count": 20
+        },
+        "result_chars": 501,
+        "error": null
+      }
+    ],
+    "visible_model_messages": [
+      "I\u2019ll use a conservative, instance-dependent convergence rule requiring two small consecutive cost changes, low elite-cost spread, proposal contraction, and a stable first action. Latent cost is not a calibrated success signal, so the controller will not treat it as one. These thresholds are heuristic, not empirically validated."
+    ]
+  },
+  {
+    "attempt": "marginal_utility_r03",
+    "counts": {
+      "read_source": 11
+    },
+    "calls": [
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9290,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 225,
+          "line_count": 200
+        },
+        "result_chars": 9848,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/041_041_041_objectives.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9104,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/034_034_034_wall_gym_wrap.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5237,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/033_033_033_wall.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9838,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/093_wsp_wall_notebook_runtime.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 11183,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/042_042_042_planner.py.txt",
+          "start_line": 207,
+          "line_count": 28
+        },
+        "result_chars": 1056,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/092_093_cem_hook.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 1136,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/091_092_core.py",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 5022,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/022_022_022_vit_enc_preds.py.txt",
+          "start_line": 1,
+          "line_count": 200
+        },
+        "result_chars": 9191,
+        "error": null
+      },
+      {
+        "tool": "read_source",
+        "arguments": {
+          "path": "sources/022_022_022_vit_enc_preds.py.txt",
+          "start_line": 230,
+          "line_count": 200
+        },
+        "result_chars": 11071,
+        "error": null
+      }
+    ],
+    "visible_model_messages": [
+      "I\u2019ll use a conservative marginal-benefit heuristic combining both recent improvement rates, elite spread, and proposal/action uncertainty. Relative cost reduction adjusts the stopping tradeoff without being treated as proof of success. The controller has no fixed stopping depth beyond the required limits.\n"
+    ]
+  }
+]

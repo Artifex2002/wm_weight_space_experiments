@@ -1,0 +1,15 @@
+{
+  "success_delta": 0.0,
+  "paired_bootstrap_95": [
+    0.0,
+    0.0
+  ],
+  "discordant_wsp_wins": 0,
+  "discordant_wsp_losses": 0,
+  "iteration_saving": 0.03888888888888886,
+  "planning_time_saving": 0.031978287433077845,
+  "weights_sha256": "ebffe6522a6e0d6aa3cbdd6f34548835e2c403a24fd947d703d3c4e1ccf37060",
+  "tasks_sha256": "b9fd1657677b3d5d1f615e51c97601e2486ea799a9e99839512fc24174b79f74",
+  "caveat": "Small pilot; CI covers episode sampling only, not generation variance",
+  "baseline_recheck_success_changes": 0
+}

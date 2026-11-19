@@ -1,0 +1,9 @@
+{
+  "source_notebook": "03_wall_frozen_stopper_diagnostics (2).ipynb",
+  "source_notebook_sha256": "cc19124d24c87f0baa75ac8a45731d94c2aa90c34c319dd1e0300e317fdbb1e7",
+  "sweep_execution_count": 21,
+  "earlier_export_execution_count": 17,
+  "coverage": "six episodes at depths 3,5,10,15,20,25; depth30 and WSP are cached earlier results",
+  "precision": "Per-episode console seconds are rounded to two decimals. Aggregate times retain six displayed decimals. Scores/depths/utility computed from exact visible counts.",
+  "missing": "Underlying fixed_k3/5/10/15/20/25 JSON files were not present in the supplied pre-sweep ZIP. No such files have been reconstructed or invented."
+}

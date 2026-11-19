@@ -1,0 +1,188 @@
+{
+  "model": "gpt-6-astra",
+  "manifest_sha256": "bd3e72f941ac6f526f9610a322d83aea53544fbbf2e7377884acc9c7775f3e9b",
+  "prompt_sha256": "d49fcf5eb9449832fbd5cf6458b5f5476e415e12975352d82acde6d83c02fa07",
+  "max_calls": 40,
+  "max_chars": 200000,
+  "max_turns": 45,
+  "max_output_tokens_per_turn": 32768,
+  "reasoning_effort": "xhigh",
+  "started_unix": 1794970336.9599457,
+  "store": false,
+  "tools": [
+    {
+      "type": "function",
+      "name": "list_tensors",
+      "description": "List checkpoint tensor names/shapes, paginated; no inference.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "limit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "read_tensor",
+      "description": "Read at most 1024 consecutive flattened weight values (C order).",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "offset",
+          "count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "tensor_stats",
+      "description": "Weight-only min/max/mean/std/L2, without model execution.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "matrix_spectrum",
+      "description": "Singular values of a bounded 2D weight submatrix; no forward pass.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "row_start": {
+            "type": "integer"
+          },
+          "col_start": {
+            "type": "integer"
+          },
+          "rows": {
+            "type": "integer"
+          },
+          "cols": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "row_start",
+          "col_start",
+          "rows",
+          "cols"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "read_source",
+      "description": "Read up to 200 numbered lines of an allowlisted source file.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "start_line": {
+            "type": "integer"
+          },
+          "line_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "start_line",
+          "line_count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "submit_weights",
+      "description": "Submit the only final controller. This ends the experiment, even if invalid.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "W1": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "b1": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "W2": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "b2": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "W1",
+          "b1",
+          "W2",
+          "b2"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

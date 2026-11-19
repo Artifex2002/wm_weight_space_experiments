@@ -1,0 +1,10 @@
+{
+  "source_archive": "wall-pilot-001-diagnostics-001-20261118T045632Z.zip",
+  "source_archive_sha256": "50ed7825e69e928de33b692cc0cf1c3a78165a4971c8a99387bf072a20f3e901",
+  "status": "Complete six-episode pilot; later depth sweep recorded separately from notebook outputs",
+  "excluded": [
+    "raw API events including source excerpts/encrypted reasoning",
+    "checkpoint binaries",
+    "packet tensor arrays"
+  ]
+}
